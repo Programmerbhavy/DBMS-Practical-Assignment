@@ -1,5 +1,5 @@
 =========================================================================================
-                                                               PRACTICAL ASSIGNMENT = 1
+                                 PRACTICAL ASSIGNMENT = 1
 =========================================================================================
 1) Create following table and insert 5 records in each table :-
 
@@ -165,3 +165,4 @@
                      -->  5) insert into tblcustomer values(115,'krishna','f',111234);  -----error for pan_no
 
                      -->  select * from tblcustomer;
+
