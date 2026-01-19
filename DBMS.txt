@@ -1,0 +1,167 @@
+=========================================================================================
+                                                               PRACTICAL ASSIGNMENT = 1
+=========================================================================================
+1) Create following table and insert 5 records in each table :-
+
+         a)  tblstud(rno,name,marks)
+                     --> create database pra1;
+
+                     -->  create table tblstud(rno int,name varchar(10),marks int);
+
+                     -->  1) insert into tblstud values(1,'bhavy',50);
+                     -->  2) insert into tblstud values(2,'mayur',60);
+                     -->  3) insert into tblstud values(3,'ady',70);
+                     -->  4) insert into tblstud values(4,'nayan',40);
+                     -->  5) insert into tblstud values(5,'ranjit',50);
+
+                     -->  select * from tblstud;
+
+
+         b)  tblemp(eno,name,salary,jdate)
+                     --> use pra1;
+
+                     -->  create table tblemp(eno int,name varchar(10),salary int,jdate date);
+
+                     -->  1) insert into tblemp values(1,'bhavy',50000,'2007-12-03');
+                     -->  2) insert into tblemp values(2,'mayur',65000,'2005-11-04');
+                     -->  3) insert into tblemp values(3,'ady',70000,'2006-09-25');
+                     -->  4) insert into tblemp values(4,'nayan',45000,'2000-03-02');
+                     -->  5) insert into tblemp values(5,'ranjit',55000,'1972-11-17');
+
+                     -->  select * from tblemp;
+
+         c)  tblclass(cno,cname,no_student)
+                     --> use pra1;
+
+                     -->  create table tblclass(cno int,cname varchar(10),no_student int);
+
+                     -->  1) insert into tblclass values(1,'msc-it',50);
+                     -->  2) insert into tblclass values(2,'bca',60);
+                     -->  3) insert into tblclass values(3,'bsc-ds',70);
+                     -->  4) insert into tblclass values(4,'bba',40);
+                     -->  5) insert into tblclass values(5,'bcom',50);
+
+                     -->  select * from tblclass;
+
+         d)  tbldept(dno,dname,location)
+                     --> use pra1;
+
+                     -->  create table tbldept(dno int,dname varchar(10),location varchar(10));
+
+                     -->  1) insert into tbldept values(111,'msc-it','gfloor');
+                     -->  2) insert into tbldept values(112,'bca','gfloor');
+                     -->  3) insert into tbldept values(113,'bsc-ds','gfloor');
+                     -->  4) insert into tbldept values(114,'bba','sfloor');
+                     -->  5) insert into tbldept values(115,'bcom','tfloor');
+
+                     -->  select * from tbldept;
+
+         e)  tblcustomer(cno,cname,gender,purchase_date,bill_amount)
+                     --> use pra1;
+
+                     -->  create table tblcustomer(cno int,cname varchar(10),gender varchar(1),
+                           purchase_date date,bill_amount int);
+
+                     -->  1) insert into tblcustomer values(111,'bhavy','m','2025-12-30',2000);
+                     -->  2) insert into tblcustomer values(112,'mayur','m','2026-01-01',2500);
+                     -->  3) insert into tblcustomer values(113,'radha','f','2026-01-01',1000);
+                     -->  4) insert into tblcustomer values(114,'khusi','f','2026-01-02',500);
+                     -->  5) insert into tblcustomer values(115,'krishna','f','2026-12-02',1500);
+
+                     -->  select * from tblcustomer;
+
+2) Create following table with constraints(drop table if exists) :-
+
+         a)  tblstud(rno,name,marks)
+                     i) rno : primary key
+                    ii) marks : <100
+
+                     --> use pra1;
+
+                     --> drop table tblstud;
+
+                     -->  create table tblstud(rno int primary key,name varchar(10),marks int check(marks<100));
+
+                     -->  1) insert into tblstud values(1,'bhavy',50);
+                     -->  2) insert into tblstud values(1,'mayur',60);  ----error for rno
+                     -->  3) insert into tblstud values(2,'ady',70);
+                     -->  4) insert into tblstud values(3,'nayan',40);
+                     -->  5) insert into tblstud values(4,'ranjit',110);  ----error for marks 
+
+                     -->  select * from tblstud;
+
+         b)  tblemp(eno,name,salary,jdate)
+                     i) eno : primary key
+                    ii) marks : <0
+
+                     --> use pra1;
+
+                     --> drop table tblemp;
+
+                     -->  create table tblemp(eno int primary key,name varchar(10),
+                           salary int check(salary>0),jdate date);
+
+                     -->  1) insert into tblemp values(1,'bhavy',50000,'2007-12-03');
+                     -->  2) insert into tblemp values(2,'mayur',65000,'2005-11-04');
+                     -->  3) insert into tblemp values(2,'ady',70000,'2006-09-25');  ----error for eno
+                     -->  4) insert into tblemp values(4,'nayan',45000,'2000-03-02');
+                     -->  5) insert into tblemp values(5,'ranjit',0,'1972-11-17');  ----error for salary 
+
+                     -->  select * from tblemp;
+
+
+         c)  tblclass(cno,cname,no_student)
+                     i) cno : primary key
+                    ii) no_student : <100
+
+                     --> use pra1;
+
+                     --> drop table tblclass;
+
+                     -->  create table tblclass(cno int primary key,cname varchar(10),no_student int check(no_student<100));
+
+                     -->  1) insert into tblclass values(1,'msc-it',150);  -----error for no_student
+                     -->  2) insert into tblclass values(2,'bca',60);
+                     -->  3) insert into tblclass values(3,'bsc-ds',70);
+                     -->  4) insert into tblclass values(4,'bba',40);
+                     -->  5) insert into tblclass values(4,'bcom',50);  -----error for cno
+
+                     -->  select * from tblclass;
+
+
+
+         d)  tbldept(dno,dname)
+                     i) dno : primary key
+                
+                     --> use pra1;
+
+                     --> drop table tbldept;
+
+                     -->  create table tbldept(dno int primary key,dname varchar(10));
+
+                     -->  1) insert into tbldept values(111,'msc-it');
+                     -->  2) insert into tbldept values(112,'bca');
+                     -->  3) insert into tbldept values(111,'bsc-ds');  -----error for dno
+                     -->  4) insert into tbldept values(114,'bba');
+                     -->  5) insert into tbldept values(115,'bcom');
+
+                     -->  select * from tbldept;
+
+         e)  tblcustomer(cno,cname,gender,pan_no)
+                     i) cno : primary key
+                    ii) gender : 'M'or'F'
+                   iii) pan_no : must be unique
+
+                     --> use pra1;
+
+                     --> drop table tblcustomer;
+
+                     -->  create table tblcustomer(cno int primary key ,cname varchar(10),gender varchar(10) check(gender  in('M','F')),pan_no int unique);
+
+                     -->  1) insert into tblcustomer values(111,'bhavy','m',111234);
+                     -->  2) insert into tblcustomer values(112,'mayur','m',151234);
+                     -->  3) insert into tblcustomer values(113,'radha','a',122334);  -----error for gender
+                     -->  4) insert into tblcustomer values(114,'khusi','f',161234);
+                     -->  5) insert into tblcustomer values(115,'krishna','f',111234);  -----error for pan_no
+
+                     -->  select * from tblcustomer;
